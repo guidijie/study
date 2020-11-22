@@ -85,6 +85,7 @@ public class Ticket implements Runnable {
                     lock.unlock();
                     break;
                 }
+                
             lock.unlock();
             try {
                 //模拟当前窗口卖完出票需要5毫秒时间
