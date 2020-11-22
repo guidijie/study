@@ -1,4 +1,4 @@
-package com.jie.thread_demo;
+package com.jie.thread_demo.create_thread;
 
 public class  MyThread3 implements Runnable{
     private String name;

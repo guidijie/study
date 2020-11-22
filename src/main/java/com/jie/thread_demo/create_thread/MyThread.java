@@ -1,4 +1,4 @@
-package com.jie.thread_demo;
+package com.jie.thread_demo.create_thread;
 
 public class MyThread extends Thread{
     public static String name;
