@@ -1,6 +1,6 @@
 package com.jie.code;
 
-import main.java.com.jie.demo.PersonEnum;
+import com.jie.demo.PersonEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +28,6 @@ public class DistinctArray {
         int[] a = {1, 1, 2};
         DistinctArray.removeDuplicates(a);
 
-        System.out.println(PersonEnum.MAN.getType());
+//        System.out.println(PersonEnum.MAN.getType());
     }
 }
