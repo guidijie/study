@@ -1,4 +1,4 @@
-package com.jie.thread_demo;
+package com.jie.thread_demo.synchronizd;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
