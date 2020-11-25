@@ -1,6 +1,5 @@
 package com.jie.heima;
 
-import org.junit.jupiter.api.Test;
 
 public class ArrayDemo {
 

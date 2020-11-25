@@ -17,7 +17,11 @@ class Student {
 
 public class GroupingArray {
     public static void main(String[] args) {
+        //创建map集合，用于存储分组后的list集合对象
+        Map<String, List<Student>> map1 = new HashMap<>();
+        Map<String, List<Student>> map2 = new HashMap<>();
 
+        //实例化对象
         Student s1 = new Student();
         s1.setName("张三");
         s1.setAge(19);
@@ -39,7 +43,7 @@ public class GroupingArray {
         s5.setAge(12);
         s5.setType("B");
 
-        //添加到list集合中
+        //将实例化对象添加到list集合中
         List<Student> list = new ArrayList<>();
         list.add(s1);
         list.add(s2);
@@ -47,9 +51,30 @@ public class GroupingArray {
         list.add(s4);
         list.add(s5);
         //打印未分组的list
-        System.out.println(list);
 
-        //创建map集合，用于存储分组后的list集合对象
+        System.out.println("未分组前的集合");
+        System.out.println(list);
+        System.out.println("=============================");
+        System.out.println();
+
+
+        System.out.println("第一种分组方法");
+        //使用第一种分组的办法
+        map1 = groupingArrayListOne(list);
+        //遍历分组后的map1
+        traverseMap(map1);
+
+        System.out.println("=============================");
+
+        System.out.println("第二种分组方法");
+        //使用第二种分组的办法
+        map2 = groupingArrayListTwo(list);
+        //遍历分组后的map2
+        traverseMap(map2);
+    }
+
+    //第一种分组的方法
+    public static Map<String, List<Student>> groupingArrayListOne(List<Student> list){
         Map<String, List<Student>> map = new HashMap<>();
         //分组
         for (Student l:list){
@@ -61,19 +86,22 @@ public class GroupingArray {
                 map.put(l.getType(), lt);  //不存在就put
             }
         }
+        return map;
+    }
 
+    //第二种分组的方法
+    public static Map<String, List<Student>> groupingArrayListTwo(List<Student> list){
+
+        //使用jdk8的流式编程对list集合进行分组
+        Map<String, List<Student>> listMap = list.stream().collect(Collectors.groupingBy(t -> t.getType()));
+        return listMap;
+
+    }
+
+    //遍历Map集合
+    public static void traverseMap(Map<String,List<Student>> map){
         for (String s:map.keySet()){
             System.out.println(map.get(s));
         }
-
-        //使用jdk8的流式编程对list集合进行分组
-//        Map<String,List<Student>> m = list.stream().collect(Collectors.groupingBy(t -> t.getType()));
-//        List<Student> list1 = m.get("A");
-//        List<Student> list2 = m.get("B");
-//
-//        System.out.println(list1);
-//        System.out.println(list2);
-
-
     }
 }
